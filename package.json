@@ -29,6 +29,7 @@
 	"type": "module",
 	"dependencies": {
 		"bootstrap": "^5.3.3",
-		"chart.js": "^4.4.2"
+		"chart.js": "^4.4.2",
+		"svelte-adapter-azure-swa": "^0.20.0"
 	}
 }
