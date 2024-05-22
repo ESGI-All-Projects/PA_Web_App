@@ -94,7 +94,7 @@
         padding-bottom: 3rem;
 				padding-left: 3rem;
 				padding-right: 3rem;
-        height: 100vh;
+
     }
 </style>
 

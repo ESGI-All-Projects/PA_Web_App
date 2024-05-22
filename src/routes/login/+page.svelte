@@ -1,23 +1,41 @@
 <script>
     import "./login.css";
 
+
 		function openMessageBox() {
 			// Afficher un message
 			const email = 'votre@email.com'; // Remplacez par l'adresse email souhaitée
 			const message = `Envoyer un email à cette adresse ${email} en donnant votre adresse mail.`;
 			alert(message);
 
-			// Rediriger l'utilisateur vers une autre page si nécessaire
-			// window.location.href = '/votre-page'; // Remplacez 'votre-page' par le chemin de la page vers laquelle vous souhaitez rediriger
-
-			// Vous pouvez également utiliser une boîte de dialogue personnalisée avec un bouton OK
-
-			const confirmation = confirm(message);
-			if (confirmation) {
-				// L'utilisateur a cliqué sur OK, effectuer une action supplémentaire si nécessaire
-			}
-
 		}
+
+		async function login(){
+			const username = document.getElementById('typeEmailX').value;
+			const password = document.getElementById('typePasswordX').value;
+
+			try {
+				const response = await fetch('http://localhost:3000/login', {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json'
+					},
+					body: JSON.stringify({ username, password })
+				});
+
+				if (!response.ok) {
+					throw new Error('Invalid credentials');
+				}
+
+				const data = await response.json();
+				localStorage.setItem('token', data.token);
+				window.location.href = '/homepage';
+
+			} catch (error) {
+				console.log(error.message);
+			}
+		}
+
 
 
 </script>
@@ -47,10 +65,10 @@
 <!--							<p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p>-->
 
 							<p class="small mb-5 pb-lg-2">
-								<a class="text-white-50" href="#" onclick="openMessageBox()">Forgot password?</a>
+								<a class="text-white-50" href="#" on:click={openMessageBox}>Forgot password?</a>
 							</p>
 
-							<button data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
+							<button data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-light btn-lg px-5" on:click={login} type="submit">Login</button>
 
 							<div class="d-flex justify-content-center text-center mt-4 pt-1">
 								<a href="#!" class="text-white"><i class="fab fa-facebook-f fa-lg"></i></a>

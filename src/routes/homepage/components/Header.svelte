@@ -1,15 +1,17 @@
 <script>
 	let searchTerm = '';
 
+	function handleProfileClick() {
+		// Ajoutez ici votre logique pour le bouton de profil
+		console.log('Profile button clicked');
+	}
+
 	function handleMenuClick() {
 		// Ajoutez ici votre logique pour le bouton de menu
 		console.log('Menu button clicked');
 	}
 
-	function handleProfileClick() {
-		// Ajoutez ici votre logique pour le bouton de profil
-		console.log('Profile button clicked');
-	}
+
 
 	function handleSearch() {
 		// Ajoutez ici votre logique pour la recherche
@@ -20,7 +22,7 @@
 
 <nav class="navbar">
 	<div class="container-fluid">
-		<button class="btn icon-button me-3" on:click={handleMenuClick}>
+		<button class="btn icon-button me-3" on:click={handleProfileClick}>
 			<img src="../../../../src/assets/user.png" alt="Menu" />
 		</button>
 
@@ -35,7 +37,7 @@
 			/>
 		</div>
 
-		<button class="btn icon-button ms-3" on:click={handleProfileClick}>
+		<button class="btn icon-button ms-3" on:click={handleMenuClick}>
 			<img src="../../../../src/assets/charte-graphique.png" alt="Profile" />
 		</button>
 	</div>
