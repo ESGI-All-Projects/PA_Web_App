@@ -4,7 +4,7 @@
 
 		function openMessageBox() {
 			// Afficher un message
-			const email = 'votre@email.com'; // Remplacez par l'adresse email souhaitée
+			const email = 'investiq@email.com'; // Remplacez par l'adresse email souhaitée
 			const message = `Envoyer un email à cette adresse ${email} en donnant votre adresse mail.`;
 			alert(message);
 

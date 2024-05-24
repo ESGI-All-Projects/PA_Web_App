@@ -1,12 +1,3 @@
-//require('dotenv').config();
-
-// const express = require('express');
-// const jwt = require('jsonwebtoken');
-// const bodyParser = require('body-parser');
-// const cors = require('cors');
-// const bcrypt = require('bcrypt');
-// const { Pool } = require('pg');
-
 import dotenv from 'dotenv';
 dotenv.config();
 
@@ -48,7 +39,7 @@ const createTable = async () => {
 
 createTable();
 
-app.post('/login', async (req, res) => {
+app.post('/api/login', async (req, res) => {
 	const { username, password } = req.body;
 	const client = await pool.connect();
 
@@ -67,7 +58,7 @@ app.post('/login', async (req, res) => {
 	}
 });
 
-app.post('/register', async (req, res) => {
+app.post('/api/register', async (req, res) => {
 	const { username, password } = req.body;
 	const client = await pool.connect();
 
@@ -85,6 +76,6 @@ app.post('/register', async (req, res) => {
 	}
 });
 
-app.listen(PORT, () => {
-	console.log(`Server running on http://localhost:${PORT}`);
-});
+// app.listen(PORT, () => {
+// 	console.log(`Server running on http://localhost:${PORT}`);
+// });
